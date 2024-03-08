@@ -172,6 +172,8 @@ These Pixel LEDs are 13.6mm in diameter at their widest point, and therefore nee
 - Congratulations, you did it! Now enjoy that beautiful new wall and come up with some fun routes!
 
 <img src="assets/led-rock-wall-back.jpg" alt="lights installed in the wall">
+<img src="assets/led-rock-wall-route-night.jpg" alt="custom climbing route in the dark">
+<img src="assets/led-rock-wall-both-walls.jpg" alt="both rock walls">
 
 ### Author
 

@@ -171,6 +171,7 @@ These Pixel LEDs are 13.6mm in diameter at their widest point, and therefore nee
 - Once you've reached the end, and tested that the lights and app are working as intended, feel free to cut off the excess lights and tape the ends of your wires with electrical tape.
 - Congratulations, you did it! Now enjoy that beautiful new wall and come up with some fun routes!
 
+<img src="assets/led-rock-wall-project-box-mounted.jpg" alt="mounted project box">
 <img src="assets/led-rock-wall-back.jpg" alt="lights installed in the wall">
 <img src="assets/led-rock-wall-route-night.jpg" alt="custom climbing route in the dark">
 <img src="assets/led-rock-wall-both-walls.jpg" alt="both rock walls">
@@ -193,4 +194,4 @@ codybarker.or@gmail.com
 
 ### Last Update
 
-2/26/24
+3/8/24

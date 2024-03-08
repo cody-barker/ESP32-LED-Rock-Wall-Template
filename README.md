@@ -121,10 +121,10 @@ No hardware SPI pins defined.  All SPI access will default to bitbanged output
 
 ### Preparing the ESP32 for Install
 
-Ensure your ESP32 is now unplugged from the computer. If you're using more than 50 LEDs, I would recommend using an external power supply. If not, you can power things with just the microusb cable. The following instructions will outline using an external power supply. Start by stripping both ends of your 3 strips of 18AWG wire, and saudering one side of each to the appropriate header pins of your ESP32.
-- Red wire to VIN
-- White or black wire to GND
-- Green or any other color wire to GPIO32
+Ensure your ESP32 is now unplugged from the computer. If you're using more than 50 LEDs, I would recommend using an external power supply. If not, you can the lights with just the microusb cable. The following instructions will outline using an external power supply. Start by stripping both ends of your 3 strips of 18AWG wire, and saudering one side of each to the appropriate header pins of your ESP32.
+- One to VIN
+- One to GND
+- One to GPIO32
 
 ### Connecting Power
 

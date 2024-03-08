@@ -103,7 +103,7 @@ No hardware SPI pins defined.  All SPI access will default to bitbanged output
 
 ## Installation
 
-### Install the Arduino IDE and Upload Code to the ESP32
+### Install the Arduino IDE and Upload Sketch to the ESP32
 
 - <a href="https://www.arduino.cc/en/software">Download</a> and install the Arudino IDE application for your OS</a>
 - Open the Arduino IDE and connect your ESP32 to your computer

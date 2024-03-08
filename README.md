@@ -36,7 +36,7 @@ Rock climbing walls are now incorporating addressable LED lights with applicatio
 
 ## Things to Know
 
-This template is based on a wall with 12 rows and 11 columns, equalling 132 LED lights. The wall was made using the <a href="https://tensionclimbing.com/">Tension Board</a> as a template. If your grid is of different dimensions, you can adjust the grid dimension values on lines 10 and 11.
+This template is based on a wall with 12 rows and 11 columns, equalling 132 LED lights. The wall was made using the <a href="https://tensionclimbing.com/">Tension Board</a> as a template. If your grid is of different dimensions, you can adjust the grid dimension values.
 ``` 
 // Grid dimensions
 const int rows = 12;

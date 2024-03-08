@@ -109,7 +109,7 @@ No hardware SPI pins defined.  All SPI access will default to bitbanged output
 - In the library manager, also search for and install the FastLED library by Daniel Garcia.
 - Once these libraries are installed, select the board manager dropdown at the top of the application, and select the ESP32-WROOM-DA Module board on the COM port you plugged it into. If you are unsure which COM port you're plugged into, click on the dropdown, unplug and replug your device to see which port disappears then reappears. That'll be the one.
 - Replace all of the code in the Arudino IDE editor with the code in <b>esp32-led-rock-wall.ino</b> from this repo.
-- Look for lines 22 and 23, and replace the placeholder vlues with your WiFi network name and password. They should be strings (in quotes).
+- Look for the WiFi credential placeholders, and replace them with your WiFi network name and password. They should be strings (in quotes).
 - In the top right of the application, click on the Serial Monitor button to open it.
 - To the far right of the serial monitor, change the baud rate to 115200 to match the serial baud rate of the application.
 - Click the upload button to upload the code to the ESP32. If you get any errors, follow the instructions. If you can't figure it out, feel free to reach out to me via the contact email at the bottom of this README, and I will try my best to assist you.
@@ -119,7 +119,7 @@ No hardware SPI pins defined.  All SPI access will default to bitbanged output
 
 ### Preparing the ESP32 for Install
 
-Ensure your ESP32 is now unplugged from the computer. You won't be using the microusb cable from here on out. Start by stripping both ends of your 3 strips of 18AWG wire, and saudering one side of each to the appropriate header pins of your ESP32.
+Ensure your ESP32 is now unplugged from the computer. If you're using more than 50 LEDs, I would recommend using an external power supply. If not, you can power things with just the microusb cable. The following instructions will outline using an external power supply. Start by stripping both ends of your 3 strips of 18AWG wire, and saudering one side of each to the appropriate header pins of your ESP32.
 - Red wire to VIN
 - White or black wire to GND
 - Green or any other color wire to GPIO32
@@ -140,8 +140,9 @@ Do not power your ESP32 by both the 5V pin connected to the power supply AND the
 - Repeat the previous step for the ground wires of the ESP32, LED strip, and negative terminal.
 - Ensure no excess wire is exposed outside the terminal connections. If there is exposed wire outside the terminals, remove the wires, clip them shorter, then reinsert them.
 - Ensure the terminal screws are snug.
-- Now connect the data wire from the LED strip with the lead coming from GPIO32 of the ESP32, using a wire nut. Ensure they are twisted together with a strong connection and there is no exposed wire.
-- Now connect the remaining LED strips together using their built in plugs.
+- Now, when joining the data wires, if using an external power supply, add a 220ohm resistor between the lead coming off the ESP32 and the LED strip using a wire nut, or solder. Then connect the two ends together just like you did with the power and gnd wires.  Ensure they are twisted together with a strong connection and there is no exposed wire. This will help reduce noise on the data line and allow your lights to function properly. You can omit the resistor if using just the micro usb cable for power.
+- Connect the remaining LED strips together using their built in plugs.
+- Cut an extra lights off and tape over the ends.
 - Carefully tuck all of the wires inside the box, and close it up using the screws provided.
 
 

@@ -133,18 +133,18 @@ Ensure your ESP32 is now unplugged from the computer. If you're using more than 
 Do not power your ESP32 by both the 5V pin connected to the power supply AND the microusb cable at the same time! We're relying on the power supply from now on, so do not use that microusb cable unless you need to update the code via your computer. If you do need to do that, ensure the ESP32 is not also connected to the external power supply.
 
 - Drill a 1/2" hole in one side of your project box.
-- Find the start of only one of your LED strips. Cut the plug off that side.
+- Find the starting side of only one of your LED strips. If you bought the LEDs in this spec, it should be the side with the connecting ring. Look for an arrow on the plug ends to indicate the direction of orientation. Cut the plug off that starting side.
 - Feed all of these wires through the hole in your project box from the outside. 
 - Separate and strip the 3 LED wires. 
 - <b>Ensure the power supply is unplugged from the wall.</b>Feed the end of the power supply cable into the box, through the hole, from the outside. You might need to remove the terminal adapter to fit the cable through the hole.
 - Place the ESP32 inside the project box.
+- You may need extra 18awg wire to lengthen the distance between the connections and the first LED. Use whatever lengths appropriate.
 - Use a wire nut to twist the power wires of the ESP32 and LED strip together, ensuring that some of the wire below the nut is twisted together as well. This will ensure a strong connection. Remove the wire nut, then insert the married wires into the power supply's positive terminal.
 - Repeat the previous step for the ground wires of the ESP32, LED strip, and negative terminal.
 - Ensure no excess wire is exposed outside the terminal connections. If there is exposed wire outside the terminals, remove the wires, clip them shorter, then reinsert them.
 - Ensure the terminal screws are snug.
 - Now, when joining the data wires, if using an external power supply, add a 220ohm resistor between the lead coming off the ESP32 and the LED strip using a wire nut, or solder. Then connect the two ends together just like you did with the power and gnd wires.  Ensure they are twisted together with a strong connection and there is no exposed wire. This will help reduce noise on the data line and allow your lights to function properly. You can omit the resistor if using just the micro usb cable for power.
 - Connect the remaining LED strips together using their built in plugs.
-- Cut an extra lights off and tape over the ends.
 - Carefully tuck all of the wires inside the box, and close it up using the screws provided.
 
 <img src="assets/led-rock-wall-project-box.jpg" alt="led project box wired up">

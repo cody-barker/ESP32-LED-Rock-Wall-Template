@@ -95,7 +95,7 @@ I've chosen the specific lights in this README because they are 5V, which means 
 
 - Sometimes on startup, the LED at index 0 will automatically be turned on.
 - When using Safari, the app will randomly toggle the LED at index 0 when other lights are toggled. This likely has something to do with how Safari handles the websocket connection. To prevent this issue, please use Chrome, Brave, Firefox, Edge, or other compatible browsers.
-- If you get this warning when uploading to the ESP32, know it's okay we are not using any SPI pins.
+- If you get this warning when uploading to the ESP32, it's okay because we are not using any SPI pins.
 ```
 No hardware SPI pins defined.  All SPI access will default to bitbanged output
 ```

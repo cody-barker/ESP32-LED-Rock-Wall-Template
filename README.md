@@ -31,7 +31,7 @@ Rock climbing walls are now incorporating addressable LED lights with applicatio
 - (3) 12" strips of 18AWG stranded wire in 3 colors
 - (1) Micro usb to USB-A cable
 - (1) Soldering iron and solder
-- (1) 220ohm resistor
+- (1) 220 ohm resistor
 - (1) Electric drill with 1/2" and 5/8" bits
 
 ## Things to Know
@@ -154,8 +154,8 @@ Do not power your ESP32 by both the 5V pin connected to the power supply AND the
 
 - Now that everything is wired up, plug in the power supply.
 - Give the ESP32 a few seconds to connect to the network, then visit the IP/URL you saved earlier in the browser to open the application.
-- The first time the ESP32 is connected, some lights might randomly light up, or in varied colors. Use the "All Off" button to turn them off. Toggling lights thereafter should be fine.
-- Click through a range of lights from the first to the last row, to ensure they're all turning on.
+- The first time the ESP32 is connected, some lights may randomly light up, and in varied colors. Use the "All Off" button to turn them off. After the initial connection, toggling lights should work as expected.
+- Click through a range of lights from the first to the last row, to ensure they're all turning on in the correct order.
 - Click the "All On" button to ensure everything turns on.
 - Click the "All Off" button to ensure everything can turn off.
 - If everything appears to be working as planned, proceed to installing the lights.

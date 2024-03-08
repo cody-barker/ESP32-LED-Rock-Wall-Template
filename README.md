@@ -35,6 +35,7 @@ Rock climbing walls are now incorporating addressable LED lights with applicatio
 - (1) Electric drill with 1/2" and 5/8" bits
 
 ## Things to Know
+<b>I am not an electrician and have limited electrical experience, but have consulted more experienced friends to develop this project.</b>
 
 This template is based on a wall with 12 rows and 11 columns, equalling 132 LED lights. The wall was made using the <a href="https://tensionclimbing.com/">Tension Board</a> as a template. If your grid is of different dimensions, you can adjust the grid dimension values.
 ``` 

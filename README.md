@@ -160,6 +160,8 @@ Do not power your ESP32 by both the 5V pin connected to the power supply AND the
 - Click the "All Off" button to ensure everything can turn off.
 - If everything appears to be working as planned, proceed to installing the lights.
 
+<img src="assets/led-rock-wall-webapp.png" alt="web app testing">
+
 ### Installing Lights in the Wall
 
 These Pixel LEDs are 13.6mm in diameter at their widest point, and therefore need holes drilled to 5/8" below each hold.

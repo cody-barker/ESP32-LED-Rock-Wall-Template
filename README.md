@@ -28,7 +28,8 @@ Rock climbing walls are now incorporating addressable LED lights with applicatio
 - (1) <a href="https://www.amazon.com/gp/product/B07TYNYW1S/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1">Project Box</a>
 - (3) 12" strips of 18AWG stranded wire in 3 colors
 - (1) Micro usb to USB-A cable
-- (1) Soldering iron and solde
+- (1) Soldering iron and solder
+- (1) 220ohm resistor
 - (1) Electric drill with 1/2" and 5/8" bits
 
 ## Things to Know
@@ -40,7 +41,7 @@ const int rows = 12;
 const int cols = 11;
 ``` 
 
-If you want to change the colors of the LEDs, you can do so by adjusting the CRGB values on lines 17-19.
+If you want to change the colors of the LEDs, you can do so by adjusting the CRGB values.
 
 ```
 // Color definitions
@@ -49,7 +50,7 @@ CRGB middleColor = CRGB(0, 0, 255);   // Blue
 CRGB finishColor = CRGB(255, 0, 0);    // Red
 ```
 
-If you want to change which rows are the start, middle, or finish, you will need to update the row numbers manually via lines 58-67.
+If you want to change which rows are the start, middle, or finish, you will need to update the row numbers manually.
 
 ```
   // Update physical LEDs and set color based on the row
@@ -66,7 +67,7 @@ If you want to change which rows are the start, middle, or finish, you will need
   }
 ```
 
-You must connect to a WiFi network to use the websocket application. Enter your WiFi network SSID and password as strings on likes 22 and 23.
+You must connect to a WiFi network to use the websocket application. Enter your WiFi network SSID and password as strings.
 
 ```
 // Replace with your network credentials

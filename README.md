@@ -105,18 +105,18 @@ No hardware SPI pins defined.  All SPI access will default to bitbanged output
 
 ### Install the Arduino IDE and Upload Sketch to the ESP32
 
-- <a href="https://www.arduino.cc/en/software">Download</a> and install the Arudino IDE application for your OS</a>
-- Open the Arduino IDE and connect your ESP32 to your computer
+- <a href="https://www.arduino.cc/en/software">Download</a> and install the Arudino IDE application for your OS.</a>
+- Open the Arduino IDE and connect your ESP32 to your computer.
 - Go to Tools > Manage Libraries. In the library manager, search for esp32. Install esp32 by Espressif Systems.
 - In the library manager, also search for and install the FastLED library by Daniel Garcia.
 - Once these libraries are installed, select the board manager dropdown at the top of the application, and select the ESP32-WROOM-DA Module board on the COM port you plugged it into. If you are unsure which COM port you're plugged into, click on the dropdown, unplug and replug your device to see which port disappears then reappears. That'll be the one.
 - Replace all of the code in the Arudino IDE editor with the code in <b>esp32-led-rock-wall.ino</b> from this repo.
 - Look for the WiFi credential placeholders, and replace them with your WiFi network name and password. They should be strings (in quotes).
-- In the top right of the application, click on the Serial Monitor button to open it.
-- To the far right of the serial monitor, change the baud rate to 115200 to match the serial baud rate of the application.
+- In the top right of the Arduino IDE, click on the Serial Monitor button to open it.
+- To the far right of the Serial Monitor, change the baud rate to 115200 to match the serial baud rate of the sketch.
 - Click the upload button to upload the code to the ESP32. If you get any errors, follow the instructions. If you can't figure it out, feel free to reach out to me via the contact email at the bottom of this README, and I will try my best to assist you.
-- While the code is uploading, keep an eye on the serial monitor. As soon as the code finishes uploading to the ESP32, the device will attempt to connect to the WiFi network. When it does, it will print out the device IP address in the serial monitor. Copy and paste that IP address into the browser to access the websocket application.
-- Either bookmark that URL or add the page as a button on your home screen if using a mobile device for easy access in the future.
+- While the code is uploading, keep an eye on the serial monitor. As soon as the sketches finishes uploading to the ESP32, the device will attempt to connect to the WiFi network. When it does, it will print out the device IP address in the serial monitor. Copy and paste that IP address into the browser to access the websocket application.
+- Either bookmark that URL/IP or add the page as a button on your home screen if using a mobile device for easy access in the future.
 
 
 ### Preparing the ESP32 for Install

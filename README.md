@@ -147,6 +147,8 @@ Do not power your ESP32 by both the 5V pin connected to the power supply AND the
 - Cut an extra lights off and tape over the ends.
 - Carefully tuck all of the wires inside the box, and close it up using the screws provided.
 
+<img src="assets/led-rock-wall-project-box.jpg" alt="led project box wired up">
+
 
 ### Testing Lights
 
@@ -166,6 +168,8 @@ These Pixel LEDs are 13.6mm in diameter at their widest point, and therefore nee
 - The LED lights will follow a serpentine path during installation. The first LED in your strip should be placed in the hole at A1. The next LED should then route to B1, then C1, etc until K1, at which point the next LED should go to K2. Then work your way back along row 2 to A2. Continue this serpentine pattern to ensure the LEDs on the wall match with the LEDs in the app. Feel free to test this before officially installing them all. You may choose to use tape or other adhesives to ensure the lights are secure in their holes.
 - Once you've reached the end, and tested that the lights and app are working as intended, feel free to cut off the excess lights and tape the ends of your wires with electrical tape.
 - Congratulations, you did it! Now enjoy that beautiful new wall and come up with some fun routes!
+
+<img src="assets/led-rock-wall-back.jpg" alt="lights installed in the wall">
 
 ### Author
 

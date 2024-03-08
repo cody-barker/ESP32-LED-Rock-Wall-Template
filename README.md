@@ -4,6 +4,8 @@
 
 Rock climbing walls are now incorporating addressable LED lights with applications that allow users to set, save, and share custom climbing routes. While there are a few options available online, the lights and software can easily cost over $1,000. This open source repo allows you to create a simple websocket application with similar functionality, at a fraction of the cost.
 
+<img src="assets/led-rock-wall-front.jpg" alt="front of fully lit LED rock wall">
+
 ### Functionality
 
 - Control individual lights under climbing holds to highlight custom routes

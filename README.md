@@ -1,4 +1,4 @@
-# ESP32-LED-Rock-Wall v 1.0
+# ESP32-LED-Rock-Wall v1.0
 
 ## Summary
 

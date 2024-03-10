@@ -127,6 +127,8 @@ Ensure your ESP32 is now unplugged from the computer. If you're using more than 
 - One to GND
 - One to GPIO32
 
+<img src="assets/led-rock-wall-back.jpg" alt="lights installed in the wall">
+
 ### Connecting Power
 
 #### IMPORTANT REMINDER
@@ -168,12 +170,14 @@ Do not power your ESP32 by both the 5V pin connected to the power supply AND the
 These Pixel LEDs are 13.6mm in diameter at their widest point, and therefore need holes drilled to 5/8" below each hold.
 
 - Mount the project box to the back of the wall, such that the first LED can reach hold A1, the bottom left hold of the board.
-- The LED lights will follow a serpentine path during installation. The first LED in your strip should be placed in the hole at A1. The next LED should then route to B1, then C1, etc until K1, at which point the next LED should go to K2. Then work your way back along row 2 to A2. Continue this serpentine pattern to ensure the LEDs on the wall match with the LEDs in the app. Feel free to test this before officially installing them all. You may choose to use tape or other adhesives to ensure the lights are secure in their holes, but in our case they were snug on their own. Ensure they aren't sticking out the front of the board, or else they could be damaged by climbers.
+- The LED lights will follow a vertical serpentine path during installation, as outlined in the following image.
+<img src="assets/led-rock-wall-routing-lights.png" alt="routing the led lights">
+
+- Ensure the LEDs aren't sticking out the front of the board, or else they could be damaged by climbers.
 - Once you've reached the end, and tested that the lights and app are working as intended, feel free to cut off the excess lights and tape the ends of your wires with electrical tape.
 - Congratulations, you did it! Now enjoy that beautiful new wall and come up with some fun routes!
 
 <img src="assets/led-rock-wall-project-box-mounted.jpg" alt="mounted project box">
-<img src="assets/led-rock-wall-back.jpg" alt="lights installed in the wall">
 <img src="assets/led-rock-wall-route-night.jpg" alt="custom climbing route in the dark">
 <img src="assets/led-rock-wall-both-walls.jpg" alt="both rock walls">
 

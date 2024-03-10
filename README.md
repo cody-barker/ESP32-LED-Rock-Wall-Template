@@ -127,9 +127,9 @@ Ensure your ESP32 is now unplugged from the computer. If you're using more than 
 - One to GND
 - One to GPIO32
 
-<img src="assets/led-rock-wall-back.jpg" alt="lights installed in the wall">
-
 ### Connecting Power
+
+<img src="assets/led-rock-wall-back.jpg" alt="lights installed in the wall">
 
 #### IMPORTANT REMINDER
 

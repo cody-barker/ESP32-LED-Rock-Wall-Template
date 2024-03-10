@@ -196,7 +196,3 @@ Feel free to fork this repo and reach out to me with suggestions and feedback.
 ### Contact
 
 codybarker.or@gmail.com
-
-### Last Update
-
-3/8/24

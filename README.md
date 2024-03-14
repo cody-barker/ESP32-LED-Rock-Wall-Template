@@ -108,9 +108,9 @@ No hardware SPI pins defined.  All SPI access will default to bitbanged output
 
 - <a href="https://www.arduino.cc/en/software">Download</a> and install the Arudino IDE application for your OS.</a>
 - Open the Arduino IDE and connect your ESP32 to your computer.
-- Go to Tools > Manage Libraries. In the library manager, search for esp32. Install esp32 by Espressif Systems.
-- In the library manager, also search for and install the FastLED library by Daniel Garcia.
-- Once these libraries are installed, select the board manager dropdown at the top of the application, and select the ESP32-WROOM-DA Module board on the COM port you plugged it into. If you are unsure which COM port you're plugged into, click on the dropdown, unplug and replug your device to see which port disappears then reappears. That'll be the one.
+- Go to Tools > Boards > Board Manager, and search for esp32. Install esp32 by Espressif Systems.
+- Go to Tools > Manage Libraries. In the library manager, search for and install the FastLED library by Daniel Garcia.
+- Once these libraries are installed, select the board manager dropdown at the top of the application, and select the ESP32-WROOM-DA Module board on the COM port you plugged it into. If you are unsure which COM port you're plugged into, click on the dropdown, unplug and replug your device to see which port disappears then reappears. That'll be the one. If your computer does not detect any devices or com ports, you likely need to update your CP210x USB to UART Bridge VCP Drivers. On Windows, you can download the latest Universal driver from <a href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads">here.</a> To install the driver, extract the contents, then press the windows key/Start and search for Device Manager. In Device Manager, look for "Other Devices", then right click the nested CP210x USB to UART Bridhe Controller and choose to update the driver with the files you just extracted. Once complete, your machine should recognize the device in the Arduino IDE.
 - Replace all of the code in the Arudino IDE editor with the code in <b>esp32-led-rock-wall.ino</b> from this repo.
 - Look for the WiFi credential placeholders, and replace them with your WiFi network name and password. They should be strings (in quotes).
 - In the top right of the Arduino IDE, click on the Serial Monitor button to open it.

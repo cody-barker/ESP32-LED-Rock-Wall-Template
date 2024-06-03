@@ -1,4 +1,4 @@
-# ESP32-LED-Rock-Wall v1.0
+# ESP32-LED-Rock-Wall v1.1
 
 ## Summary
 
@@ -10,21 +10,20 @@ Rock climbing walls are now incorporating addressable LED lights with applicatio
 
 - Control individual lights under climbing holds to highlight custom routes
 - Turn on/off all the lights at once
+- Save and load your own custom routes with the ESP32's EEPROM
 
 ### Future Improvements
 
 - Use async requests to avoid page refreshes when toggling lights
-- Save custom routes
 - Adjust light colors from the app
 - A login page with a form for the WiFi SSID and password
 - Fun RGB effects because why not
-
 
 ## Hardware
 
 - (1) <a href="https://www.amazon.com/gp/product/B08246MCL5/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1">ESP32 Microcontroller</a>
 - (1) <a href="https://www.amazon.com/MTYTOT-100V-240V-Switching-Converter-Transformer/dp/B0BXWZ99RZ/ref=sr_1_3?crid=2Q6LIU0XZMFT5&dib=eyJ2IjoiMSJ9.hhsY_vZl4Ugjh0N1mL9Qob7DOrWor4fw1gXnFHd7Z8nQyRGcjrTmOCRWmGYZ3ucTF2cl0TC-Jihojegukb1FK0n78mhY8akai2H7KsOr9SRJfWeZkMQhOhtR532jOvQYAZAKJ9bZNKza4EPTx5HdxCRclXBSimrburMSics6KvlAmZE8fyrxEYgKwdQEw8vIEUbA3DRdSaJH5oBSAq0VkxsnzSTUeOR06JlpWorDVX8.1UE1ij9wl6-dbhJQFD4nAQ7ooJ6CHHqUNOSuAN4dtvk&dib_tag=se&keywords=mtytot+dc+5v+10a+power&qid=1708971649&sprefix=mtytot+dc+5v+10a+powe%2Caps%2C128&sr=8-3">
-5V 10A Power Supply with DC Terminal Connector</a>
+  5V 10A Power Supply with DC Terminal Connector</a>
 - (3) <a href="https://www.aliexpress.us/item/3256801674884092.html?gatewayAdapt=glo2usa4itemAdapt">50pcs 5v WS2811 12mm Addressable LED Smart Pixel Nodes on 25cm Spacing</a>
 - (1) <a href="https://www.acehardware.com/departments/lighting-and-electrical/boxes-fittings-and-conduit/lugs/3021896">Box of 22-16 AWG Twist-on Wire Connectors</a>
 - (1) <a href="https://www.amazon.com/gp/product/B07TYNYW1S/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1">Project Box</a>
@@ -35,14 +34,16 @@ Rock climbing walls are now incorporating addressable LED lights with applicatio
 - (1) Electric drill with 1/2" and 5/8" bits
 
 ## Things to Know
+
 <b>I am not an electrician and have limited electrical experience, but have consulted more experienced friends to develop this project.</b>
 
 This template is based on a wall with 12 rows and 11 columns, equalling 132 LED lights. The wall was made using the <a href="https://tensionclimbing.com/">Tension Board</a> as a template. If your grid is of different dimensions, you can adjust the grid dimension values.
-``` 
+
+```
 // Grid dimensions
 const int rows = 12;
 const int cols = 11;
-``` 
+```
 
 If you want to change the colors of the LEDs, you can do so by adjusting the CRGB values.
 
@@ -85,6 +86,7 @@ When using all 3 colors channels like CRGB(255, 255, 255), an LED will use ~60mA
 It is important to remember this when considering how many LEDs you plan to use and how you intend to light them. With a 10A power supply, you should not exceed 80% of it's capacity, therefore keep the total amperage below 8A.
 
 For example:
+
 - If using only 1 color channel per LED, you could power up to 400 LEDs safely.
 - If using all 3 color channels per LED, you could power up to 133 LEDs safely.
 
@@ -94,13 +96,11 @@ I've chosen the specific lights in this README because they are 5V, which means 
 
 ### Known Bugs
 
-- Sometimes on startup, the LED at index 0 will automatically be turned on.
-- When using Safari, the app will randomly toggle the LED at index 0 when other lights are toggled. This likely has something to do with how Safari handles the websocket connection. To prevent this issue, please use Chrome, Brave, Firefox, Edge, or other compatible browsers.
-- If you get this warning when uploading to the ESP32, it's okay because we are not using any SPI pins.
+- If you get this warning when uploading the sketch to the ESP32, it's okay because we are not using any SPI pins.
+
 ```
 No hardware SPI pins defined.  All SPI access will default to bitbanged output
 ```
-
 
 ## Installation
 
@@ -110,26 +110,26 @@ No hardware SPI pins defined.  All SPI access will default to bitbanged output
 - Open the Arduino IDE and connect your ESP32 to your computer.
 - Go to Tools > Boards > Board Manager, and search for esp32. Install esp32 by Espressif Systems.
 - Go to Tools > Manage Libraries. In the library manager, search for and install the FastLED library by Daniel Garcia.
-- Once these libraries are installed, select the board manager dropdown at the top of the application, and select the ESP32-WROOM-DA Module board on the COM port you plugged it into. If you are unsure which COM port you're plugged into, click on the dropdown, unplug and replug your device to see which port disappears then reappears. That'll be the one. If your computer does not detect any devices or com ports, you likely need to update your CP210x USB to UART Bridge VCP Drivers. On Windows, you can download the latest Universal driver from <a href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads">here.</a> To install the driver, extract the contents, then press the windows key/Start and search for Device Manager. In Device Manager, look for "Other Devices", then right click the nested CP210x USB to UART Bridhe Controller and choose to update the driver with the files you just extracted. Once complete, your machine should recognize the device in the Arduino IDE.
+- Once these libraries are installed, select the board manager dropdown at the top of the application, and select the ESP32-WROOM-DA Module board on the COM port you plugged it into. If you are unsure which COM port to select, click on the dropdown, unplug then plug in your device to see which port disappears then reappears. That'll be the one. If your computer does not detect any devices or com ports, you likely need to update your CP210x USB to UART Bridge VCP Drivers. On Windows, you can download the latest Universal driver from <a href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads">here.</a> To install the driver, extract the contents, then press the windows key and search for Device Manager. In Device Manager, look for "Other Devices", then right click the nested CP210x USB to UART Bridge Controller and choose to update the driver with the files you just extracted. Once complete, your machine should recognize the device in the Arduino IDE.
 - Replace all of the code in the Arudino IDE editor with the code in <b>esp32-led-rock-wall.ino</b> from this repo.
-- Look for the WiFi credential placeholders, and replace them with your WiFi network name and password. They should be strings (in quotes).
+- Look for the WiFi credential placeholders, and replace them with your WiFi network name and password. The SSID and password should be entered as strings.
 - In the top right of the Arduino IDE, click on the Serial Monitor button to open it.
 - To the far right of the Serial Monitor, change the baud rate to 115200 to match the serial baud rate of the sketch.
 - Click the upload button to upload the code to the ESP32. If you get any errors, follow the instructions. If you can't figure it out, feel free to reach out to me via the contact email at the bottom of this README, and I will try my best to assist you.
-- While the code is uploading, keep an eye on the serial monitor. As soon as the sketches finishes uploading to the ESP32, the device will attempt to connect to the WiFi network. When it does, it will print out the device IP address in the serial monitor. Copy and paste that IP address into the browser to access the websocket application.
+- While the code is uploading, keep an eye on the serial monitor. As soon as the sketch finishes uploading to the ESP32, the device will attempt to connect to the WiFi network. When it does, it will print out the device IP address in the serial monitor. Copy and paste that IP address into the browser to access the websocket application.
 - Either bookmark that URL/IP or add the page as a button on your home screen if using a mobile device for easy access in the future.
-
 
 ### Preparing the ESP32 for Install
 
 Ensure your ESP32 is now unplugged from the computer. If you're using more than 50 LEDs, I would recommend using an external power supply. If not, you can the lights with just the microusb cable. The following instructions will outline using an external power supply. Start by stripping both ends of your 3 strips of 18AWG wire, and saudering one side of each to the appropriate header pins of your ESP32.
+
 - One to VIN
 - One to GND
 - One to GPIO32
 
-### Connecting Power
-
 <img src="assets/led-rock-wall-back.jpg" alt="lights installed in the wall">
+
+### Connecting Power
 
 #### IMPORTANT REMINDER
 
@@ -137,8 +137,8 @@ Do not power your ESP32 by both the 5V pin connected to the power supply AND the
 
 - Drill a 1/2" hole in one side of your project box.
 - Find the starting side of only one of your LED strips. If you bought the LEDs in this spec, it should be the side with the connecting ring. Look for an arrow on the plug ends to indicate the direction of orientation. Cut the plug off that starting side.
-- Feed all of these wires through the hole in your project box from the outside. 
-- Separate and strip the 3 LED wires. 
+- Feed all of these wires through the hole in your project box from the outside.
+- Separate and strip the 3 LED wires.
 - <b>Ensure the power supply is unplugged from the wall.</b>Feed the end of the power supply cable into the box, through the hole, from the outside. You might need to remove the terminal adapter to fit the cable through the hole.
 - Place the ESP32 inside the project box.
 - You may need extra 18awg wire to lengthen the distance between the connections and the first LED. Use whatever lengths appropriate.
@@ -146,12 +146,11 @@ Do not power your ESP32 by both the 5V pin connected to the power supply AND the
 - Repeat the previous step for the ground wires of the ESP32, LED strip, and negative terminal.
 - Ensure no excess wire is exposed outside the terminal connections. If there is exposed wire outside the terminals, remove the wires, clip them shorter, then reinsert them.
 - Ensure the terminal screws are snug.
-- Now, when joining the data wires, if using an external power supply, add a 220ohm resistor between the lead coming off the ESP32 and the LED strip using a wire nut, or solder. Then connect the two ends together just like you did with the power and gnd wires.  Ensure they are twisted together with a strong connection and there is no exposed wire. This will help reduce noise on the data line and allow your lights to function properly. You can omit the resistor if using just the micro usb cable for power.
+- Now, when joining the data wires, if using an external power supply, add a 220ohm resistor between the lead coming off the ESP32 and the LED strip using a wire nut, or solder. Then connect the two ends together just like you did with the power and gnd wires. Ensure they are twisted together with a strong connection and there is no exposed wire. This will help reduce noise on the data line and allow your lights to function properly. You can omit the resistor if using just the micro usb cable for power.
 - Connect the remaining LED strips together using their built in plugs.
 - Carefully tuck all of the wires inside the box, and close it up using the screws provided.
 
 <img src="assets/led-rock-wall-project-box.jpg" alt="led project box wired up">
-
 
 ### Testing Lights
 
@@ -171,7 +170,7 @@ These Pixel LEDs are 13.6mm in diameter at their widest point, and therefore nee
 
 - Mount the project box to the back of the wall, such that the first LED can reach hold A1, the bottom left hold of the board.
 - The LED lights will follow a vertical serpentine path during installation, as outlined in the following image.
-<img src="assets/led-rock-wall-routing-lights.png" alt="routing the led lights">
+  <img src="assets/led-rock-wall-routing-lights.png" alt="routing the led lights">
 
 - Ensure the LEDs aren't sticking out the front of the board, or else they could be damaged by climbers.
 - Once you've reached the end, and tested that the lights and app are working as intended, feel free to cut off the excess lights and tape the ends of your wires with electrical tape.

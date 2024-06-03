@@ -162,7 +162,7 @@ Do not power your ESP32 by both the 5V pin connected to the power supply AND the
 - Click the "All Off" button to ensure everything can turn off.
 - If everything appears to be working as planned, proceed to installing the lights.
 
-<img src="assets/led-rock-wall-webapp.png" alt="web app testing">
+<img src="assets/esp32-rock-wall-v1.1.png" alt="web app testing">
 
 ### Installing Lights in the Wall
 

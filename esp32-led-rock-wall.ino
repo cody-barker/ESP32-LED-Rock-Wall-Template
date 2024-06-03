@@ -32,7 +32,7 @@ unsigned long currentTime = millis();
 unsigned long previousTime = 0;
 const long timeoutTime = 2000;
 
-// Variable to store the current and previous clicked button indices
+// Variable to store the currently clicked button index
 int currentClickedButtonIndex = -1;
 
 void handleButtonClick(int row, int col) {
@@ -52,7 +52,7 @@ void handleButtonClick(int row, int col) {
       leds[index] = startColor;    // Rows 10 to 12: Red color
     }
   } else {
-    leds[index] = CRGB::Black;  // Turn off: Black color
+    leds[index] = CRGB::Black;  // Turn off
   }
 
   FastLED.show();
@@ -69,11 +69,11 @@ void turnOnAll() {
 
       // Set color based on the row
       if (row <= 2) {
-        leds[index] = finishColor;  // Rows 1 and 2: Green color
+        leds[index] = finishColor;  // Rows 1 and 2: startColor
       } else if (row >= 3 && row <= 9) {
-        leds[index] = middleColor;   // Rows 3 to 9: Blue color
+        leds[index] = middleColor;   // Rows 3 to 9: middleColor
       } else {
-        leds[index] = startColor;    // Rows 10 to 12: Red color
+        leds[index] = startColor;    // Rows 10 to 12: finishColor
       }
     }
   }
@@ -81,7 +81,7 @@ void turnOnAll() {
 }
 
 void turnOffAllButtons() {
-  // Turn off all buttons/LEDs to off
+  // Turn off all buttons/LEDs
   for (int row = 0; row < rows; row++) {
     for (int col = 0; col < cols; col++) {
       ledStates[row][col] = false;
@@ -130,7 +130,6 @@ void loadRoute(int selectedRoute) {
   // Calculate the EEPROM address based on the selected route
   int address = selectedRoute * sizeof(ledStates[0][0]) * rows * cols;
 
-
   // Debugging: Print the calculated EEPROM address
   Serial.print("Loading from EEPROM at address: ");
   Serial.println(address);
@@ -155,14 +154,14 @@ void loadRoute(int selectedRoute) {
       if (ledStates[row][col]) {
         // Set color based on the row
         if (row <= 2) {
-          leds[index] = finishColor;  // Rows 1 and 2: Green color
+          leds[index] = finishColor;  // Rows 1 and 2: startColor
         } else if (row >= 3 && row <= 9) {
-          leds[index] = middleColor;  // Rows 3 to 9: Blue color
+          leds[index] = middleColor;  // Rows 3 to 9: middleColor
         } else {
-          leds[index] = startColor;   // Rows 10 to 12: Red color
+          leds[index] = startColor;   // Rows 10 to 12: finishColor
         }
       } else {
-        leds[index] = CRGB::Black;  // Turn off: Black color
+        leds[index] = CRGB::Black;  // Turn off
       }
     }
   }
@@ -255,30 +254,31 @@ void loop() {
               turnOnAll();
             }
 
+            // Check if the "Save Route" button is clicked
             if (header.indexOf("GET /saveRoute") != -1) {
               int selectedRoute = header.substring(header.indexOf("?route=") + 7).toInt();
               saveRoute(selectedRoute);
             }
 
+            //Check if the "Load Route" option is selected
             if (header.indexOf("GET /loadRoute") != -1) {
               int selectedRoute = header.substring(header.indexOf("?route=") + 7).toInt();
               loadRoute(selectedRoute);
             }
 
-            // Wrap the existing HTML content in a div and apply styles for centering
             client.println("<!DOCTYPE html><html>");
             client.println("<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
             client.println("<link rel=\"icon\" href=\"data:,\">");
             client.println("<style>html { font-family: Helvetica; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;}");
             client.println("body { background-color: #0E142B; margin: 0; }");
-            client.println(".container { text-align: center; }");  // Center the grid
+            client.println(".container { text-align: center; }");
             client.println("h1 { font-weight: lighter; color: #FFED8A; margin: 0; padding: 0;}");
             client.println(" a {text-decoration: none; margin: 0; padding: 0; }");
-            client.println(".button-container { margin: 2em 0; }");  // Adjust margin as needed
+            client.println(".button-container { margin: 2em 0; }"); 
             client.println(".turn-off-all-button, .turn-on-all-button { background-color: #FF6347; color: white; border: none; padding: 1em 2em; cursor: pointer; margin: 0 1em; display: inline-block; border-radius: 2em;}");
             client.println(".button { border: none; border-radius: 50%; width: 30px; height: 30px; font-size: 10px; margin: 1px; padding: 1px; cursor: pointer;}");
-            client.println(".button2 { background-color: #FFED8A; color: #0E142B; }");  // On
-            client.println(".button3 { background-color: #244FB3; color: white; }");  // Off
+            client.println(".button2 { background-color: #FFED8A; color: #0E142B; }");
+            client.println(".button3 { background-color: #244FB3; color: white; }");
             client.println(".label { font-size: 10px; }");
             client.println("#saves {margin: 1em;}");
             client.println("select { padding: 0.5em; border-radius: 1em; background-color: #FF6347; color: white; }");
@@ -298,8 +298,7 @@ void loop() {
             // Display "Turn Off All" button
             client.println("<a href=\"/turnOffAll\"><button class=\"turn-off-all-button\">All Off</button></a>");
 
-            // Inside the HTML content generation section of your Arduino code
-
+            //Display the Route select
             client.println("<div id=\"saves\" class=\"container\">");
             client.println("<select id=\"routeSelect\" onchange=\"selectRoute()\">");
 
@@ -316,7 +315,7 @@ void loop() {
             client.println("</div>");
 
 
-            // Add JavaScript functions to handle select change and save route, and manage local storage
+            //JavaScript functions to handle select change and save route, and manage local storage
             client.println("<script>");
             client.println("function selectRoute() {");
             client.println("  var select = document.getElementById('routeSelect');");
